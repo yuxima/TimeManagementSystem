@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimeManagementSystem", "Tim
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimeManagementSystem.Data.Entities", "TimeManagementSystem.Data.Entities\TimeManagementSystem.Data.Entities.csproj", "{6A3BBE1D-7316-4974-8ADF-55470DB18CBF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimeManagementSystem.Data.Abstraction", "TimeManagementSystem.Data.Abstraction\TimeManagementSystem.Data.Abstraction.csproj", "{72DFD1FA-1D1F-4D88-BB40-FD9FC1786480}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimeManagementSystem.Data.Implementation", "TimeManagementSystem.Data.Implementation\TimeManagementSystem.Data.Implementation.csproj", "{5A47AEE4-569C-4714-B86E-E71480CB0C52}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{6A3BBE1D-7316-4974-8ADF-55470DB18CBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6A3BBE1D-7316-4974-8ADF-55470DB18CBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6A3BBE1D-7316-4974-8ADF-55470DB18CBF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{72DFD1FA-1D1F-4D88-BB40-FD9FC1786480}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72DFD1FA-1D1F-4D88-BB40-FD9FC1786480}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72DFD1FA-1D1F-4D88-BB40-FD9FC1786480}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72DFD1FA-1D1F-4D88-BB40-FD9FC1786480}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A47AEE4-569C-4714-B86E-E71480CB0C52}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A47AEE4-569C-4714-B86E-E71480CB0C52}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A47AEE4-569C-4714-B86E-E71480CB0C52}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A47AEE4-569C-4714-B86E-E71480CB0C52}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
