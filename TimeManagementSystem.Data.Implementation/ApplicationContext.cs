@@ -10,7 +10,7 @@ namespace TimeManagementSystem.Data.Implementation
         public ApplicationContext(DbContextOptions<ApplicationContext> options)
             : base(options)
         {
-            base.Database.EnsureCreated();
+            //base.Database.EnsureCreated();
         }
 
         public DbSet<Project> Projects { get; set; }

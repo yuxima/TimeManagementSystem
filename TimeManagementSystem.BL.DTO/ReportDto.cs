@@ -8,6 +8,7 @@ namespace TimeManagementSystem.BL.DTO
 {
     public class ReportDto
     {
+        public string Id { get; set; }
         public string Name { get; set; }
         public string TaskItemId { get; set; }
         public string UserId { get; set; }

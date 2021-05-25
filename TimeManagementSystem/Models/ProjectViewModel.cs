@@ -1,16 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
-namespace TimeManagementSystem.BL.DTO
+namespace TimeManagementSystem.Models
 {
-    public class TeamDto
+    public class ProjectViewModel
     {
         public string Id { get; set; }
         public string Name { get; set; }
-        public string ProjectId { get; set; }
-        public ProjectDto Project { get; set; }
+        public string Description { get; set; }
+        public string Abbr { get; set; }
     }
 }

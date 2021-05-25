@@ -4,6 +4,200 @@
     "C:\\Users\\Nastia\\source\\repos\\TimeManagementSystem\\TimeManagementSystem\\TimeManagementSystem.csproj": {}
   },
   "projects": {
+    "C:\\Users\\Nastia\\source\\repos\\TimeManagementSystem\\TimeManagementSystem.BL.Abstraction\\TimeManagementSystem.BL.Abstraction.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Nastia\\source\\repos\\TimeManagementSystem\\TimeManagementSystem.BL.Abstraction\\TimeManagementSystem.BL.Abstraction.csproj",
+        "projectName": "TimeManagementSystem.BL.Abstraction",
+        "projectPath": "C:\\Users\\Nastia\\source\\repos\\TimeManagementSystem\\TimeManagementSystem.BL.Abstraction\\TimeManagementSystem.BL.Abstraction.csproj",
+        "packagesPath": "C:\\Users\\Nastia\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Nastia\\source\\repos\\TimeManagementSystem\\TimeManagementSystem.BL.Abstraction\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Nastia\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "C:\\Users\\Nastia\\source\\repos\\TimeManagementSystem\\TimeManagementSystem.BL.DTO\\TimeManagementSystem.BL.DTO.csproj": {
+                "projectPath": "C:\\Users\\Nastia\\source\\repos\\TimeManagementSystem\\TimeManagementSystem.BL.DTO\\TimeManagementSystem.BL.DTO.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.203\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Nastia\\source\\repos\\TimeManagementSystem\\TimeManagementSystem.BL.DTO\\TimeManagementSystem.BL.DTO.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Nastia\\source\\repos\\TimeManagementSystem\\TimeManagementSystem.BL.DTO\\TimeManagementSystem.BL.DTO.csproj",
+        "projectName": "TimeManagementSystem.BL.DTO",
+        "projectPath": "C:\\Users\\Nastia\\source\\repos\\TimeManagementSystem\\TimeManagementSystem.BL.DTO\\TimeManagementSystem.BL.DTO.csproj",
+        "packagesPath": "C:\\Users\\Nastia\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Nastia\\source\\repos\\TimeManagementSystem\\TimeManagementSystem.BL.DTO\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Nastia\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.203\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Nastia\\source\\repos\\TimeManagementSystem\\TimeManagementSystem.BL.Implementation\\TimeManagementSystem.BL.Implementation.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Nastia\\source\\repos\\TimeManagementSystem\\TimeManagementSystem.BL.Implementation\\TimeManagementSystem.BL.Implementation.csproj",
+        "projectName": "TimeManagementSystem.BL.Implementation",
+        "projectPath": "C:\\Users\\Nastia\\source\\repos\\TimeManagementSystem\\TimeManagementSystem.BL.Implementation\\TimeManagementSystem.BL.Implementation.csproj",
+        "packagesPath": "C:\\Users\\Nastia\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Nastia\\source\\repos\\TimeManagementSystem\\TimeManagementSystem.BL.Implementation\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Nastia\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "C:\\Users\\Nastia\\source\\repos\\TimeManagementSystem\\TimeManagementSystem.BL.Abstraction\\TimeManagementSystem.BL.Abstraction.csproj": {
+                "projectPath": "C:\\Users\\Nastia\\source\\repos\\TimeManagementSystem\\TimeManagementSystem.BL.Abstraction\\TimeManagementSystem.BL.Abstraction.csproj"
+              },
+              "C:\\Users\\Nastia\\source\\repos\\TimeManagementSystem\\TimeManagementSystem.Data.Abstraction\\TimeManagementSystem.Data.Abstraction.csproj": {
+                "projectPath": "C:\\Users\\Nastia\\source\\repos\\TimeManagementSystem\\TimeManagementSystem.Data.Abstraction\\TimeManagementSystem.Data.Abstraction.csproj"
+              },
+              "C:\\Users\\Nastia\\source\\repos\\TimeManagementSystem\\TimeManagementSystem.Data.Implementation\\TimeManagementSystem.Data.Implementation.csproj": {
+                "projectPath": "C:\\Users\\Nastia\\source\\repos\\TimeManagementSystem\\TimeManagementSystem.Data.Implementation\\TimeManagementSystem.Data.Implementation.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[10.1.1, )"
+            },
+            "Microsoft.AspNetCore.Identity": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.IdentityModel.Tokens": {
+              "target": "Package",
+              "version": "[6.11.1, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[6.11.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.203\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
     "C:\\Users\\Nastia\\source\\repos\\TimeManagementSystem\\TimeManagementSystem.Data.Abstraction\\TimeManagementSystem.Data.Abstraction.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -243,6 +437,9 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
+              "C:\\Users\\Nastia\\source\\repos\\TimeManagementSystem\\TimeManagementSystem.BL.Implementation\\TimeManagementSystem.BL.Implementation.csproj": {
+                "projectPath": "C:\\Users\\Nastia\\source\\repos\\TimeManagementSystem\\TimeManagementSystem.BL.Implementation\\TimeManagementSystem.BL.Implementation.csproj"
+              },
               "C:\\Users\\Nastia\\source\\repos\\TimeManagementSystem\\TimeManagementSystem.Data.Implementation\\TimeManagementSystem.Data.Implementation.csproj": {
                 "projectPath": "C:\\Users\\Nastia\\source\\repos\\TimeManagementSystem\\TimeManagementSystem.Data.Implementation\\TimeManagementSystem.Data.Implementation.csproj"
               }
@@ -259,11 +456,37 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[10.1.1, )"
+            },
+            "FluentValidation.AspNetCore": {
+              "target": "Package",
+              "version": "[10.1.0, )"
+            },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[5.0.6, )"
+            },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
               "version": "[5.0.6, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[5.0.6, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.6, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[5.0.2, )"
             }
           },
           "imports": [
