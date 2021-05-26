@@ -49,7 +49,7 @@ namespace TimeManagementSystem.BL.Implementation.Services
             return projectDto;
         }
 
-        public async Task UpdateAsync(string id, ProjectDto model)
+        public async Task UpdateAsync(ProjectDto model)
         {
             var project = _mapper.Map<Project>(model);
             _unitOfWork.ProjectRepository.Update(project);

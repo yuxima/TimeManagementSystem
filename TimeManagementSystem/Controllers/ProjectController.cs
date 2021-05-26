@@ -13,13 +13,13 @@ using TimeManagementSystem.Data.Implementation;
 
 namespace TimeManagementSystem.Controllers
 {
-    public class ProjectsController : Controller
+    public class ProjectController : Controller
     {
         private readonly ApplicationContext _context;
         private readonly IMapper _mapper;
         private readonly IProjectService _projectService;
 
-        public ProjectsController(IProjectService service)
+        public ProjectController(IProjectService service)
         {
             _projectService = service;
         }
@@ -28,6 +28,7 @@ namespace TimeManagementSystem.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<ProjectDto>>> Index()
         {
+
             return View(await _projectService.GetAllAsync());
         }
 
