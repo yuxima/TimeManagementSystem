@@ -17,8 +17,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TimeManagementSystem.BL.Abs
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TimeManagementSystem.BL.Implementation", "TimeManagementSystem.BL.Implementation\TimeManagementSystem.BL.Implementation.csproj", "{3F39E5CA-4F26-42B8-B4A2-1B35EB647C84}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimeManagementSystem.Mapping", "TimeManagementSystem.Mapping\TimeManagementSystem.Mapping.csproj", "{98CB0B04-F964-435B-A632-615F0AA2BD53}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -53,10 +51,6 @@ Global
 		{3F39E5CA-4F26-42B8-B4A2-1B35EB647C84}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3F39E5CA-4F26-42B8-B4A2-1B35EB647C84}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3F39E5CA-4F26-42B8-B4A2-1B35EB647C84}.Release|Any CPU.Build.0 = Release|Any CPU
-		{98CB0B04-F964-435B-A632-615F0AA2BD53}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{98CB0B04-F964-435B-A632-615F0AA2BD53}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{98CB0B04-F964-435B-A632-615F0AA2BD53}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{98CB0B04-F964-435B-A632-615F0AA2BD53}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

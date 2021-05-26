@@ -19,10 +19,8 @@ namespace TimeManagementSystem.Controllers
         private readonly IMapper _mapper;
         private readonly IProjectService _projectService;
 
-        public ProjectsController(ApplicationContext context, IMapper mapper, IProjectService service)
+        public ProjectsController(IProjectService service)
         {
-            _context = context;
-            _mapper = mapper;
             _projectService = service;
         }
 
@@ -34,27 +32,16 @@ namespace TimeManagementSystem.Controllers
         }
 
         // GET: Projects/Details/5
-        public async Task<IActionResult> Details(string id)
+        public async Task<ActionResult<ProjectDto>> Details(string id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var project = await _context.Projects
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (project == null)
-            {
-                return NotFound();
-            }
-
-            return View(project);
+            return View(await _projectService.GetByIdAsync(id));
         }
 
         // GET: Projects/Create
         public IActionResult Create()
         {
             return View();
+
         }
 
         // POST: Projects/Create
@@ -62,15 +49,17 @@ namespace TimeManagementSystem.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Name,Description,Abbr,Id")] Project project)
+        public async Task<IActionResult> Create([Bind("Name,Description,Abbr")] Project project)
         {
-            if (ModelState.IsValid)
-            {
-                _context.Add(project);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            return View(project);
+            var projectDto = _mapper.Map<ProjectDto>(project);
+            await _projectService.AddAsync(projectDto);
+            //if (ModelState.IsValid)
+            //{
+            //    _context.Add(project);
+            //    await _context.SaveChangesAsync();
+            //    return RedirectToAction(nameof(Index));
+            //}
+            return View(projectDto);
         }
 
         // GET: Projects/Edit/5
@@ -94,8 +83,9 @@ namespace TimeManagementSystem.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("Name,Description,Abbr,Id")] Project project)
+        public async Task<IActionResult> Edit(string id, [Bind("Name,Description,Abbr")] Project project)
         {
+
             if (id != project.Id)
             {
                 return NotFound();

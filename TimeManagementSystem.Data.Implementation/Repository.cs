@@ -18,8 +18,9 @@ namespace TimeManagementSystem.Data.Implementation
             _context = context;
             _dbSet = context.Set<TEntity>();
         }
-        public void Delete(TEntity entity)
+        public async void DeleteByIdAsync(string id)
         {
+            var entity = await _dbSet.FindAsync(id);
             if (_context.Entry(entity).State == EntityState.Detached)
                 _dbSet.Attach(entity);
             _dbSet.Remove(entity);
@@ -34,7 +35,7 @@ namespace TimeManagementSystem.Data.Implementation
             return entities;
         }
 
-        public async Task<TEntity> GetByIdAsync(int id)
+        public async Task<TEntity> GetByIdAsync(string id)
         {
             return await _dbSet.FindAsync(id);
         }
