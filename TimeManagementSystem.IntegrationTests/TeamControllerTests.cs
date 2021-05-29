@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace TimeManagementSystem.IntegrationTests
 {
     [TestFixture]
-    public class ProjectControllerTests
+    public class TeamControllerTests
     {
         private HttpClient _client;
 
@@ -22,28 +22,28 @@ namespace TimeManagementSystem.IntegrationTests
         [Test]
         public async Task Index_WhenCalled_ReturnsCorrectForm()
         {
-            var response = await _client.GetAsync("/Project");
+            var response = await _client.GetAsync("/Team");
             response.EnsureSuccessStatusCode();
             var responseString = await response.Content.ReadAsStringAsync();
 
-            responseString.Should().Contain("Project1");
-            responseString.Should().Contain("Project2");
+            responseString.Should().Contain("Team1");
+            responseString.Should().Contain("Team2");
         }
 
         [Test]
         public async Task Create_WhenCalled_ReturnsCorrectForm()
         {
-            var response = await _client.GetAsync("/Project/Create");
+            var response = await _client.GetAsync("/Team/Create");
             response.EnsureSuccessStatusCode();
             var responseString = await response.Content.ReadAsStringAsync();
 
-            responseString.Should().Contain("Create new Project");
+            responseString.Should().Contain("Create new Team");
         }
 
         [Test]
         public async Task Create_WhenPOSTExecuted_ReturnsToIndexViewWithCreatedSubject()
         {
-            var postRequest = new HttpRequestMessage(HttpMethod.Post, "/Project/Create");
+            var postRequest = new HttpRequestMessage(HttpMethod.Post, "/Team/Create");
             var formModel = new Dictionary<string, string>
             {
                 { "Name", "New Name" }
@@ -60,18 +60,18 @@ namespace TimeManagementSystem.IntegrationTests
         [Test]
         public async Task Edit_WhenCalled_ReturnsCorrectForm()
         {
-            var response = await _client.GetAsync("/Project/Edit/1");
+            var response = await _client.GetAsync("/Team/Edit/1");
             response.EnsureSuccessStatusCode();
             var responseString = await response.Content.ReadAsStringAsync();
 
-            responseString.Should().Contain("Project1");
+            responseString.Should().Contain("Team1");
 
         }
 
         [Test]
         public async Task Edit_WhenPOSTExecuted_ReturnsToIndexViewWithCreatedSubject()
         {
-            var postRequest = new HttpRequestMessage(HttpMethod.Post, "/Project/Edit/1");
+            var postRequest = new HttpRequestMessage(HttpMethod.Post, "/Team/Edit/1");
             var formModel = new Dictionary<string, string>
             {
                 { "Name", "Edited Name" }
@@ -87,19 +87,19 @@ namespace TimeManagementSystem.IntegrationTests
         [Test]
         public async Task Delete_WhenCalled_ReturnsCorrectForm()
         {
-            var response = await _client.GetAsync("/Project/Delete/1");
+            var response = await _client.GetAsync("/Team/Delete/1");
             response.EnsureSuccessStatusCode();
             var responseString = await response.Content.ReadAsStringAsync();
 
             responseString.Should().Contain("Are you sure you want to delete this");
-            responseString.Should().Contain("Project1");
+            responseString.Should().Contain("Team1");
 
         }
 
         [Test]
         public async Task Delete_WhenPOSTExecuted_ReturnsToIndexViewWithDeletedSubject()
         {
-            var postRequest = new HttpRequestMessage(HttpMethod.Post, "/Project/Delete/1");
+            var postRequest = new HttpRequestMessage(HttpMethod.Post, "/Team/Delete/1");
             var formModel = new Dictionary<string, string>
             {
                 { "id", "1" }
@@ -109,8 +109,8 @@ namespace TimeManagementSystem.IntegrationTests
             response.EnsureSuccessStatusCode();
             var responseString = await response.Content.ReadAsStringAsync();
 
-            responseString.Should().NotContain("Project1");
-            responseString.Should().Contain("Project2");
+            responseString.Should().NotContain("Team1");
+            responseString.Should().Contain("Team2");
         }
     }
 }

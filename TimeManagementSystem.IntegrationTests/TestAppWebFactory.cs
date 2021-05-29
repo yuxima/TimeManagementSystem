@@ -49,13 +49,18 @@ namespace TimeManagementSystem.IntegrationTests
             context.Projects.Add(new Project { Id = "2", Name = "Project2", Abbr = "P2", Description = "This project about 2", TaskItems = new List<TaskItem>(), Teams = new List<Team>() });
             context.Teams.Add(new Team
                 { Id = "1", Name = "Team1", Users = new List<User>(), ProjectId = "1" });
+            context.Teams.Add(new Team
+                { Id = "2", Name = "Team2", Users = new List<User>(), ProjectId = "2" });
 
             context.Users.Add(new User { Id = "1", Name = "Vasyl", Email = "vasyl@gmail.com", TeamId = "1" });
             context.Users.Add(new User { Id = "2", Name = "Petro", Email = "petro@gmail.com", TeamId = "1" });
 
             context.TaskItems.Add(new TaskItem
-                { Id = "1", Name = "Task1", Description = "FirstReport", Date = new DateTime(2000, 11, 10), ProjectId = "1" });
+                { Id = "1", Name = "TaskItem1", Description = "FirstReport", Date = new DateTime(2000, 11, 10), ProjectId = "1" });
+            context.TaskItems.Add(new TaskItem
+                { Id = "2", Name = "TaskItem2", Description = "FirstReport", Date = new DateTime(2000, 12, 12), ProjectId = "1" });
             context.Reports.Add(new Report { Id = "1", Name = "Report1", TaskItemId = "1", UserId = "1" });
+            context.Reports.Add(new Report { Id = "2", Name = "Report2", TaskItemId = "2", UserId = "2" });
 
             context.SaveChanges();
         }

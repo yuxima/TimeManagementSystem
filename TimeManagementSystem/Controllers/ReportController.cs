@@ -5,17 +5,17 @@ using TimeManagementSystem.BL.DTO;
 
 namespace TimeManagementSystem.Controllers
 {
-    public class ProjectController : Controller
+    public class ReportController : Controller
     {
-        private readonly IProjectService _projectService;
-        public ProjectController(IProjectService projectService)
+        private readonly IReportService _reportService;
+        public ReportController(IReportService reportService)
         {
-            _projectService = projectService;
+            _reportService = reportService;
         }
 
         public async Task<IActionResult> Index()
         {
-            var model = await _projectService.GetAllAsync();
+            var model = await _reportService.GetAllAsync();
             return View(model);
         }
 
@@ -25,41 +25,41 @@ namespace TimeManagementSystem.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(ProjectDto projectDto)
+        public async Task<IActionResult> Create(ReportDto reportDto)
         {
             if (ModelState.IsValid)
             {
-                await _projectService.AddAsync(projectDto);
+                await _reportService.AddAsync(reportDto);
                 return RedirectToAction(nameof(Index));
             }
-            return View(projectDto);
+            return View(reportDto);
         }
 
         public async Task<IActionResult> Edit(string id)
         {
-            var subjectDtoToEdit = await _projectService.GetByIdAsync(id);
+            var subjectDtoToEdit = await _reportService.GetByIdAsync(id);
             return View(subjectDtoToEdit);
         }
         [HttpPost]
-        public async Task<IActionResult> Edit(ProjectDto projectDto)
+        public async Task<IActionResult> Edit(ReportDto reportDto)
         {
             if (ModelState.IsValid)
             {
-                await _projectService.UpdateAsync(projectDto);
+                await _reportService.UpdateAsync(reportDto);
                 return RedirectToAction(nameof(Index));
             }
-            return View(projectDto);
+            return View(reportDto);
         }
 
         public async Task<IActionResult> Delete(string id)
         {
-            var subjectDtoToDelete = await _projectService.GetByIdAsync(id);
+            var subjectDtoToDelete = await _reportService.GetByIdAsync(id);
             return View(subjectDtoToDelete);
         }
         [HttpPost, ActionName("Delete")]
         public async Task<IActionResult> DeleteConfirmed(string id)
         {
-            await _projectService.DeleteByIdAsync(id);
+            await _reportService.DeleteByIdAsync(id);
             return RedirectToAction(nameof(Index));
         }
     }
