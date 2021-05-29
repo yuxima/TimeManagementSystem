@@ -35,7 +35,6 @@ namespace TimeManagementSystem.UnitTests
 
         private static void FillWithData(ApplicationContext context)
         {
-            
             context.Projects.Add(new Project { Id = "1", Name = "Project1", Abbr = "P1", Description = "This project about 1" , TaskItems = new List<TaskItem>(), Teams = new List<Team>()});
             context.Teams.Add(new Team
                 { Id = "1", Name = "Team1", Users = new List<User>(), ProjectId = "1"});

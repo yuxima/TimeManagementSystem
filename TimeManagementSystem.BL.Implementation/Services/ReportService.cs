@@ -1,38 +1,60 @@
-﻿using System;
+﻿using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using TimeManagementSystem.BL.Abstraction;
 using TimeManagementSystem.BL.DTO;
+using TimeManagementSystem.Data.Abstraction;
+using TimeManagementSystem.Data.Entities;
 
 namespace TimeManagementSystem.BL.Implementation.Services
 {
     public class ReportService : IReportService
     {
-        public Task AddAsync(ReportDto model)
+        IUnitOfWork _unitOfWork;
+        IMapper _mapper;
+
+        public ReportService(IUnitOfWork unitOfWork, IMapper mapper)
         {
-            throw new NotImplementedException();
+            _unitOfWork = unitOfWork;
+            _mapper = mapper;
         }
 
-        public Task DeleteByIdAsync(string id)
+        public async Task AddAsync(ReportDto model)
         {
-            throw new NotImplementedException();
+            var report = _mapper.Map<Report>(model);
+
+            await _unitOfWork.ReportRepository.InsertAsync(report);
+            await _unitOfWork.CommitAsync();
         }
 
-        public Task<IEnumerable<ReportDto>> GetAllAsync()
+        public async Task DeleteByIdAsync(string id)
         {
-            throw new NotImplementedException();
+            _unitOfWork.ReportRepository.DeleteByIdAsync(id);
+            await _unitOfWork.CommitAsync();
         }
 
-        public Task<ReportDto> GetByIdAsync(string id)
+        public async Task<IEnumerable<ReportDto>> GetAllAsync()
         {
-            throw new NotImplementedException();
+            var reports = await _unitOfWork.ReportRepository.GetAllAsync().ToListAsync();
+
+            return _mapper.Map<IEnumerable<ReportDto>>(reports);
         }
 
-        public Task UpdateAsync(string id, ReportDto model)
+        public async Task<ReportDto> GetByIdAsync(string id)
         {
-            throw new NotImplementedException();
+            var report = await _unitOfWork.ReportRepository.GetByIdAsync(id);
+            var reportDto = _mapper.Map<ReportDto>(report);
+
+            return reportDto;
+        }
+
+        public async Task UpdateAsync(ReportDto model)
+        {
+            var report = _mapper.Map<Report>(model);
+            _unitOfWork.ReportRepository.Update(report);
+
+            await _unitOfWork.CommitAsync();
         }
     }
 }

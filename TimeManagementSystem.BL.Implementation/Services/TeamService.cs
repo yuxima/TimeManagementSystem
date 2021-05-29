@@ -1,38 +1,60 @@
-﻿using System;
+﻿using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using TimeManagementSystem.BL.Abstraction;
 using TimeManagementSystem.BL.DTO;
+using TimeManagementSystem.Data.Abstraction;
+using TimeManagementSystem.Data.Entities;
 
 namespace TimeManagementSystem.BL.Implementation.Services
 {
     public class TeamService : ITeamService
     {
-        public Task AddAsync(TeamDto model)
+        IUnitOfWork _unitOfWork;
+        IMapper _mapper;
+
+        public TeamService(IUnitOfWork unitOfWork, IMapper mapper)
         {
-            throw new NotImplementedException();
+            _unitOfWork = unitOfWork;
+            _mapper = mapper;
         }
 
-        public Task DeleteByIdAsync(string id)
+        public async Task AddAsync(TeamDto model)
         {
-            throw new NotImplementedException();
+            var team = _mapper.Map<Team>(model);
+
+            await _unitOfWork.TeamRepository.InsertAsync(team);
+            await _unitOfWork.CommitAsync();
         }
 
-        public Task<IEnumerable<TeamDto>> GetAllAsync()
+        public async Task DeleteByIdAsync(string id)
         {
-            throw new NotImplementedException();
+            _unitOfWork.TeamRepository.DeleteByIdAsync(id);
+            await _unitOfWork.CommitAsync();
         }
 
-        public Task<TeamDto> GetByIdAsync(string id)
+        public async Task<IEnumerable<TeamDto>> GetAllAsync()
         {
-            throw new NotImplementedException();
+            var teams = await _unitOfWork.TeamRepository.GetAllAsync().ToListAsync();
+
+            return _mapper.Map<IEnumerable<TeamDto>>(teams);
         }
 
-        public Task UpdateAsync(string id, TeamDto model)
+        public async Task<TeamDto> GetByIdAsync(string id)
         {
-            throw new NotImplementedException();
+            var team = await _unitOfWork.TeamRepository.GetByIdAsync(id);
+            var teamDto = _mapper.Map<TeamDto>(team);
+
+            return teamDto;
+        }
+
+        public async Task UpdateAsync(TeamDto model)
+        {
+            var team = _mapper.Map<Team>(model);
+            _unitOfWork.TeamRepository.Update(team);
+
+            await _unitOfWork.CommitAsync();
         }
     }
 }

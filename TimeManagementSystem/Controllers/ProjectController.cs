@@ -8,145 +8,66 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using TimeManagementSystem.BL.Abstraction;
 using TimeManagementSystem.BL.DTO;
-using TimeManagementSystem.Data.Entities;
 using TimeManagementSystem.Data.Implementation;
 
 namespace TimeManagementSystem.Controllers
 {
     public class ProjectController : Controller
     {
-        private readonly ApplicationContext _context;
-        private readonly IMapper _mapper;
         private readonly IProjectService _projectService;
-
-        public ProjectController(IProjectService service)
+        public ProjectController(IProjectService projectService)
         {
-            _projectService = service;
+            _projectService = projectService;
         }
 
-        // GET: Projects
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<ProjectDto>>> Index()
+        public async Task<IActionResult> Index()
         {
-
-            return View(await _projectService.GetAllAsync());
+            var model = await _projectService.GetAllAsync();
+            return View(model);
         }
 
-        // GET: Projects/Details/5
-        public async Task<ActionResult<ProjectDto>> Details(string id)
-        {
-            return View(await _projectService.GetByIdAsync(id));
-        }
-
-        // GET: Projects/Create
         public IActionResult Create()
         {
             return View();
-
         }
 
-        // POST: Projects/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Name,Description,Abbr")] Project project)
+        public async Task<IActionResult> Create(ProjectDto projectDto)
         {
-            var projectDto = _mapper.Map<ProjectDto>(project);
-            await _projectService.AddAsync(projectDto);
-            //if (ModelState.IsValid)
-            //{
-            //    _context.Add(project);
-            //    await _context.SaveChangesAsync();
-            //    return RedirectToAction(nameof(Index));
-            //}
+            if (ModelState.IsValid)
+            {
+                await _projectService.AddAsync(projectDto);
+                return RedirectToAction(nameof(Index));
+            }
             return View(projectDto);
         }
 
-        // GET: Projects/Edit/5
         public async Task<IActionResult> Edit(string id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var project = await _context.Projects.FindAsync(id);
-            if (project == null)
-            {
-                return NotFound();
-            }
-            return View(project);
+            var subjectDtoToEdit = await _projectService.GetByIdAsync(id);
+            return View(subjectDtoToEdit);
         }
-
-        // POST: Projects/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("Name,Description,Abbr")] Project project)
+        public async Task<IActionResult> Edit(ProjectDto projectDto)
         {
-
-            if (id != project.Id)
-            {
-                return NotFound();
-            }
-
             if (ModelState.IsValid)
             {
-                try
-                {
-                    _context.Update(project);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!ProjectExists(project.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
+                await _projectService.UpdateAsync(projectDto);
                 return RedirectToAction(nameof(Index));
             }
-            return View(project);
+            return View(projectDto);
         }
 
-        // GET: Projects/Delete/5
         public async Task<IActionResult> Delete(string id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var project = await _context.Projects
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (project == null)
-            {
-                return NotFound();
-            }
-
-            return View(project);
+            var subjectDtoToDelete = await _projectService.GetByIdAsync(id);
+            return View(subjectDtoToDelete);
         }
-
-        // POST: Projects/Delete/5
         [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(string id)
         {
-            var project = await _context.Projects.FindAsync(id);
-            _context.Projects.Remove(project);
-            await _context.SaveChangesAsync();
+            await _projectService.DeleteByIdAsync(id);
             return RedirectToAction(nameof(Index));
-        }
-
-        private bool ProjectExists(string id)
-        {
-            return _context.Projects.Any(e => e.Id == id);
         }
     }
 }

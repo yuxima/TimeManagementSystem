@@ -12,7 +12,7 @@ namespace TimeManagementSystem.BL.Abstraction
 
         Task<IEnumerable<ReportDto>> GetAllAsync();
 
-        Task UpdateAsync(string id, ReportDto model);
+        Task UpdateAsync(ReportDto model);
 
         Task DeleteByIdAsync(string id);
     }

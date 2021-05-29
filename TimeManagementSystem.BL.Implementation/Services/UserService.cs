@@ -1,17 +1,16 @@
-﻿using System;
+﻿using AutoMapper;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
+using Microsoft.IdentityModel.Tokens;
+using System;
 using System.Collections.Generic;
-using System.Linq;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 using TimeManagementSystem.BL.Abstraction;
 using TimeManagementSystem.BL.DTO;
 using TimeManagementSystem.Data.Abstraction;
-using Microsoft.IdentityModel.Tokens;
-using Microsoft.EntityFrameworkCore;
-using System.IdentityModel.Tokens.Jwt;
-using System.Security.Claims;
-using AutoMapper;
-using Microsoft.Extensions.Options;
 
 namespace TimeManagementSystem.BL.Implementation.Services
 {
