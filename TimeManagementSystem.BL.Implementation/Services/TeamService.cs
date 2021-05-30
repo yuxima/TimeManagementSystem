@@ -30,7 +30,7 @@ namespace TimeManagementSystem.BL.Implementation.Services
 
         public async Task DeleteByIdAsync(string id)
         {
-            _unitOfWork.TeamRepository.DeleteByIdAsync(id);
+            _unitOfWork.TeamRepository.DeleteById(id);
             await _unitOfWork.CommitAsync();
         }
 

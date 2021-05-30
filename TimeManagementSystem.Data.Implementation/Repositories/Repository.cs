@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using TimeManagementSystem.Data.Abstraction;
 using TimeManagementSystem.Data.Entities;
 
-namespace TimeManagementSystem.Data.Implementation
+namespace TimeManagementSystem.Data.Implementation.Repositories
 {
     public class Repository<TEntity> : IRepository<TEntity> where TEntity : BaseEntity
     {
@@ -18,9 +18,10 @@ namespace TimeManagementSystem.Data.Implementation
             _context = context;
             _dbSet = context.Set<TEntity>();
         }
-        public async void DeleteByIdAsync(string id)
+
+        public void DeleteById(string id)
         {
-            var entity = await _dbSet.FindAsync(id);
+            var entity = _dbSet.Find(id);
             if (_context.Entry(entity).State == EntityState.Detached)
                 _dbSet.Attach(entity);
             _dbSet.Remove(entity);

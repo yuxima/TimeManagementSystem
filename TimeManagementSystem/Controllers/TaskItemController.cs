@@ -1,16 +1,21 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 using TimeManagementSystem.BL.Abstraction;
 using TimeManagementSystem.BL.DTO;
+using TimeManagementSystem.Data.Implementation;
 
 namespace TimeManagementSystem.Controllers
 {
     public class TaskItemController : Controller
     {
         private readonly ITaskItemService _taskItemService;
-        public TaskItemController(ITaskItemService taskItemService)
+        private ApplicationContext _context;
+        public TaskItemController(ITaskItemService taskItemService, ApplicationContext context)
         {
             _taskItemService = taskItemService;
+            _context = context;
         }
 
         public async Task<IActionResult> Index()
@@ -21,7 +26,14 @@ namespace TimeManagementSystem.Controllers
 
         public IActionResult Create()
         {
+            ViewData["ProjectId"] = new SelectList(_context.Projects, "Id", "Name");
             return View();
+        }
+
+        public async Task<IActionResult> Details(string id)
+        {
+            var taskItemDto = await _taskItemService.GetByIdAsync(id);
+            return View(taskItemDto);
         }
 
         [HttpPost]
@@ -37,8 +49,13 @@ namespace TimeManagementSystem.Controllers
 
         public async Task<IActionResult> Edit(string id)
         {
-            var subjectDtoToEdit = await _taskItemService.GetByIdAsync(id);
-            return View(subjectDtoToEdit);
+            var queue = await _taskItemService.GetByIdAsync(id);
+            if (queue == null)
+            {
+                return NotFound();
+            }
+            ViewData["ProjectId"] = new SelectList(_context.Projects, "Id", "Name", queue.ProjectId);
+            return View(queue);
         }
         [HttpPost]
         public async Task<IActionResult> Edit(TaskItemDto taskItemDto)

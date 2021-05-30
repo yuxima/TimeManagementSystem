@@ -3,6 +3,7 @@ using System;
 using System.Threading.Tasks;
 using TimeManagementSystem.Data.Abstraction;
 using TimeManagementSystem.Data.Entities;
+using TimeManagementSystem.Data.Implementation.Repositories;
 
 namespace TimeManagementSystem.Data.Implementation
 {
@@ -27,8 +28,7 @@ namespace TimeManagementSystem.Data.Implementation
         public IRepository<Report> ReportRepository =>
             _reportRepository ??= new Repository<Report>(_applicationContext);
 
-        public IRepository<TaskItem> TaskItemRepository =>
-            _taskItemRepository ??= new Repository<TaskItem>(_applicationContext);
+        public ITaskItemRepository TaskItemRepository => new TaskItemRepository(_applicationContext);
 
         public IRepository<Team> TeamRepository =>
             _teamRepository ??= new Repository<Team>(_applicationContext);

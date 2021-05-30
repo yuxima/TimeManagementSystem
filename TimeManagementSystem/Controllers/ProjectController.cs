@@ -19,6 +19,12 @@ namespace TimeManagementSystem.Controllers
             return View(model);
         }
 
+        public async Task<IActionResult> Details(string id)
+        {
+            var project = await _projectService.GetByIdAsync(id);
+            return View(project);
+        }
+
         public IActionResult Create()
         {
             return View();
@@ -37,8 +43,8 @@ namespace TimeManagementSystem.Controllers
 
         public async Task<IActionResult> Edit(string id)
         {
-            var subjectDtoToEdit = await _projectService.GetByIdAsync(id);
-            return View(subjectDtoToEdit);
+            var projectDtoToEdit = await _projectService.GetByIdAsync(id);
+            return View(projectDtoToEdit);
         }
         [HttpPost]
         public async Task<IActionResult> Edit(ProjectDto projectDto)

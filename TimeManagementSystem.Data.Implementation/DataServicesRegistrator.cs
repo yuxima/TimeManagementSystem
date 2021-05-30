@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using TimeManagementSystem.Data.Abstraction;
 using TimeManagementSystem.Data.Entities;
+using TimeManagementSystem.Data.Implementation.Repositories;
 
 namespace TimeManagementSystem.Data.Implementation
 {
@@ -19,7 +20,7 @@ namespace TimeManagementSystem.Data.Implementation
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddTransient<IRepository<Project>, Repository<Project>>();
             services.AddTransient<IRepository<Report>, Repository<Report>>();
-            services.AddTransient<IRepository<TaskItem>, Repository<TaskItem>>();
+            services.AddTransient<ITaskItemRepository, TaskItemRepository>();
             services.AddTransient<IRepository<Team>, Repository<Team>>();
 
             return services;

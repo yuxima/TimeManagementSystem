@@ -8,7 +8,7 @@ namespace TimeManagementSystem.Data.Abstraction
     {
         IRepository<Project> ProjectRepository { get; }
         IRepository<Report> ReportRepository { get; }
-        IRepository<TaskItem> TaskItemRepository { get; }
+        ITaskItemRepository TaskItemRepository { get; }
         IRepository<Team> TeamRepository { get; }
         UserManager<User> UserManager { get; }
         RoleManager<IdentityRole> RoleManager { get; }

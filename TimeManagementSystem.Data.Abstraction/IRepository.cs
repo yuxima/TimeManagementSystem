@@ -12,6 +12,6 @@ namespace TimeManagementSystem.Data.Abstraction
         Task<TEntity> GetByIdAsync(string id);
         Task InsertAsync(TEntity entity);
         void Update(TEntity entity);
-        void DeleteByIdAsync(string id);
+        void DeleteById(string id);
     }
 }
